@@ -1,0 +1,9 @@
+$ echo "35.5/80`n45`n2,5.5,10" | python processor.py
+==== Running parse_reading ====
+Enter temperature/humidity (e.g. 35.5/80): Temperature and Humidity: (35.5, 80)
+
+==== Running wind_category ====
+Enter a wind speed in km/h (e.g. 45): Wind Category: advisory
+
+==== Running rainfall_spread ====
+Enter hourly rainfall in mm as CSV (e.g. 2,5.5,10): Rainfall Spread: 8.0
