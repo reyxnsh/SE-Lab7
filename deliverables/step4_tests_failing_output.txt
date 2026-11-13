@@ -1,0 +1,227 @@
+﻿$ python -m pytest test_processor.py -v
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Asus\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7
+plugins: hypothesis-6.170.15, platformdirs-4.13.3
+collecting ... collected 9 items
+
+test_processor.py::test_parse_reading_no_crash FAILED                    [ 11%]
+test_processor.py::test_parse_reading_robustness_mixed_types FAILED      [ 22%]
+test_processor.py::test_parse_reading_correctness PASSED                 [ 33%]
+test_processor.py::test_wind_category_no_crash FAILED                    [ 44%]
+test_processor.py::test_wind_category_robustness_mixed_types FAILED      [ 55%]
+test_processor.py::test_wind_category_correctness PASSED                 [ 66%]
+test_processor.py::test_rainfall_spread_no_crash FAILED                  [ 77%]
+test_processor.py::test_rainfall_spread_robustness_mixed_types FAILED    [ 88%]
+test_processor.py::test_rainfall_spread_correctness PASSED               [100%]
+
+================================== FAILURES ===================================
+_________________________ test_parse_reading_no_crash _________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 11, in test_parse_reading_no_crash
+  |     def test_parse_reading_no_crash(s):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 13, in test_parse_reading_no_crash
+    |     result = parse_reading(s)
+    |              ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 2, in parse_reading
+    |     temp, humidity = text.split('/')
+    |     ^^^^^^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | Failing test case: test_parse_reading_no_crash(
+    |     s='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 13, in test_parse_reading_no_crash
+    |     result = parse_reading(s)
+    |              ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 2, in parse_reading
+    |     temp, humidity = text.split('/')
+    |                      ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | Failing test case: test_parse_reading_no_crash(
+    |     s=None,
+    | )
+    +------------------------------------
+__________________ test_parse_reading_robustness_mixed_types __________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 18, in test_parse_reading_robustness_mixed_types
+  |     def test_parse_reading_robustness_mixed_types(val):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 3 distinct failures. (3 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 20, in test_parse_reading_robustness_mixed_types
+    |     result = parse_reading(val)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 3, in parse_reading
+    |     return float(temp), int(humidity)
+    |            ^^^^^^^^^^^
+    | ValueError: could not convert string to float: ''
+    | Failing test case: test_parse_reading_robustness_mixed_types(
+    |     val='/',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 20, in test_parse_reading_robustness_mixed_types
+    |     result = parse_reading(val)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 2, in parse_reading
+    |     temp, humidity = text.split('/')
+    |     ^^^^^^^^^^^^^^
+    | ValueError: not enough values to unpack (expected 2, got 1)
+    | Failing test case: test_parse_reading_robustness_mixed_types(
+    |     val='',
+    | )
+    +---------------- 3 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 20, in test_parse_reading_robustness_mixed_types
+    |     result = parse_reading(val)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 2, in parse_reading
+    |     temp, humidity = text.split('/')
+    |                      ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | Failing test case: test_parse_reading_robustness_mixed_types(
+    |     val=None,
+    | )
+    +------------------------------------
+_________________________ test_wind_category_no_crash _________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 51, in test_wind_category_no_crash
+  |     def test_wind_category_no_crash(s):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 53, in test_wind_category_no_crash
+    |     result = wind_category(s)
+    |              ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 6, in wind_category
+    |     speed = int(speed_text)
+    |             ^^^^^^^^^^^^^^^
+    | ValueError: invalid literal for int() with base 10: ''
+    | Failing test case: test_wind_category_no_crash(
+    |     s='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 53, in test_wind_category_no_crash
+    |     result = wind_category(s)
+    |              ^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 6, in wind_category
+    |     speed = int(speed_text)
+    |             ^^^^^^^^^^^^^^^
+    | TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+    | Failing test case: test_wind_category_no_crash(
+    |     s=None,
+    | )
+    +------------------------------------
+__________________ test_wind_category_robustness_mixed_types __________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 58, in test_wind_category_robustness_mixed_types
+  |     def test_wind_category_robustness_mixed_types(val):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 60, in test_wind_category_robustness_mixed_types
+    |     result = wind_category(val)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 6, in wind_category
+    |     speed = int(speed_text)
+    |             ^^^^^^^^^^^^^^^
+    | ValueError: invalid literal for int() with base 10: ''
+    | Failing test case: test_wind_category_robustness_mixed_types(
+    |     val='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 60, in test_wind_category_robustness_mixed_types
+    |     result = wind_category(val)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 6, in wind_category
+    |     speed = int(speed_text)
+    |             ^^^^^^^^^^^^^^^
+    | TypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'
+    | Failing test case: test_wind_category_robustness_mixed_types(
+    |     val=None,
+    | )
+    +------------------------------------
+________________________ test_rainfall_spread_no_crash ________________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 81, in test_rainfall_spread_no_crash
+  |     def test_rainfall_spread_no_crash(s):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 83, in test_rainfall_spread_no_crash
+    |     result = rainfall_spread(s)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 14, in rainfall_spread
+    |     readings = [float(r) for r in readings_csv.split(',')]
+    |                 ^^^^^^^^
+    | ValueError: could not convert string to float: ''
+    | Failing test case: test_rainfall_spread_no_crash(
+    |     s='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 83, in test_rainfall_spread_no_crash
+    |     result = rainfall_spread(s)
+    |              ^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 14, in rainfall_spread
+    |     readings = [float(r) for r in readings_csv.split(',')]
+    |                                   ^^^^^^^^^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | Failing test case: test_rainfall_spread_no_crash(
+    |     s=None,
+    | )
+    +------------------------------------
+_________________ test_rainfall_spread_robustness_mixed_types _________________
+  + Exception Group Traceback (most recent call last):
+  |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 88, in test_rainfall_spread_robustness_mixed_types
+  |     def test_rainfall_spread_robustness_mixed_types(val):
+  |                    ^^^
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 90, in test_rainfall_spread_robustness_mixed_types
+    |     result = rainfall_spread(val)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 14, in rainfall_spread
+    |     readings = [float(r) for r in readings_csv.split(',')]
+    |                 ^^^^^^^^
+    | ValueError: could not convert string to float: ''
+    | Failing test case: test_rainfall_spread_robustness_mixed_types(
+    |     val='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\test_processor.py", line 90, in test_rainfall_spread_robustness_mixed_types
+    |     result = rainfall_spread(val)
+    |              ^^^^^^^^^^^^^^^^^^^^
+    |   File "C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7\processor.py", line 14, in rainfall_spread
+    |     readings = [float(r) for r in readings_csv.split(',')]
+    |                                   ^^^^^^^^^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | Failing test case: test_rainfall_spread_robustness_mixed_types(
+    |     val=None,
+    | )
+    +------------------------------------
+=========================== short test summary info ===========================
+FAILED test_processor.py::test_parse_reading_no_crash - ExceptionGroup: Hypot...
+FAILED test_processor.py::test_parse_reading_robustness_mixed_types - Excepti...
+FAILED test_processor.py::test_wind_category_no_crash - ExceptionGroup: Hypot...
+FAILED test_processor.py::test_wind_category_robustness_mixed_types - Excepti...
+FAILED test_processor.py::test_rainfall_spread_no_crash - ExceptionGroup: Hyp...
+FAILED test_processor.py::test_rainfall_spread_robustness_mixed_types - Excep...
+========================= 6 failed, 3 passed in 0.91s =========================
+
