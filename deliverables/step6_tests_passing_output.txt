@@ -1,0 +1,21 @@
+﻿$ python -m pytest test_processor.py -v
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.2.0, pluggy-1.7.0 -- C:\Users\Asus\AppData\Local\Programs\Python\Python312\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: C:\Users\Asus\Desktop\Sem 5\SE\lab\Lab 7
+plugins: hypothesis-6.170.15, platformdirs-4.13.3
+collecting ... collected 9 items
+
+test_processor.py::test_parse_reading_no_crash PASSED                    [ 11%]
+test_processor.py::test_parse_reading_robustness_mixed_types PASSED      [ 22%]
+test_processor.py::test_parse_reading_correctness PASSED                 [ 33%]
+test_processor.py::test_wind_category_no_crash PASSED                    [ 44%]
+test_processor.py::test_wind_category_robustness_mixed_types PASSED      [ 55%]
+test_processor.py::test_wind_category_correctness PASSED                 [ 66%]
+test_processor.py::test_rainfall_spread_no_crash PASSED                  [ 77%]
+test_processor.py::test_rainfall_spread_robustness_mixed_types PASSED    [ 88%]
+test_processor.py::test_rainfall_spread_correctness PASSED               [100%]
+
+============================== 9 passed in 0.86s ==============================
+
